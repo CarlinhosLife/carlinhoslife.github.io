@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset='utf-8'/>
+    <meta content='width=device-width, initial-scale=1' name='viewport'/>
+    <title>Carlinhos Life - O site clandestino do Carlinhos!</title>
+    <meta content='Carlinhos Life - O site clandestino do Carlinhos!' name='description'/>
+    <meta content='carlinhos, meme brasileiro, memes, carlinhos, cavalos, viado, cultura internet' name='keywords'/>
+    
+    <link href='https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&amp;family=Poppins:wght@400;600;700&amp;display=swap' rel='stylesheet'/>
+    
+    <style>
+        :root {
+            --corinthians-black: #000000;
+            --corinthians-white: #FFFFFF;
+            --corinthians-gray: #F5F5F5;
+            --corinthians-red: #FF0000;
+            --corinthians-yellow: #FFD700;
+        }
+        
+        body {
+            font-family: 'Comic Neue', cursive, sans-serif;
+            background-color: var(--corinthians-gray);
+            color: var(--corinthians-black);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        
+        a {
+            color: var(--corinthians-black);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        a:hover {
+            color: var(--corinthians-red);
+            text-shadow: 0 0 5px rgba(255, 0, 0, 0.3);
+        }
+        
+        .header {
+            background: linear-gradient(135deg, var(--corinthians-black), #333333);
+            color: var(--corinthians-white);
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: "O Carlinhos mama no pau do negão!";
+            position: absolute;
+            top: 10px;
+            left: 0;
+            right: 0;
+            font-size: 16px;
+            color: rgba(255,255,255,0.3);
+            font-weight: bold;
+        }
+        
+        .logo {
+            font-family: 'Poppins', sans-serif;
+            font-size: 3rem;
+            margin: 0;
+            text-shadow: 3px 3px 0 var(--corinthians-black);
+            position: relative;
+            z-index: 2;
+        }
+        
+        .logo span {
+            color: var(--corinthians-yellow);
+        }
+        
+        .slogan {
+            font-style: italic;
+            margin: 5px 0 0;
+            font-size: 1.2rem;
+        }
+        
+        .nav {
+            background-color: var(--corinthians-black);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .nav-link {
+            color: var(--corinthians-white);
+            padding: 5px 15px;
+            margin: 0 5px;
+            border-radius: 20px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            background-color: var(--corinthians-yellow);
+            color: var(--corinthians-black);
+            transform: translateY(-3px);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 30px;
+        }
+        
+        .section {
+            background-color: var(--corinthians-white);
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border: 3px solid var(--corinthians-black);
+        }
+        
+        .section-title {
+            color: var(--corinthians-black);
+            margin-top: 0;
+            border-bottom: 2px dashed var(--corinthians-black);
+            padding-bottom: 10px;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .sidebar {
+            position: sticky;
+            top: 80px;
+            align-self: start;
+        }
+        
+        .sidebar-section {
+            background-color: var(--corinthians-white);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border: 3px solid var(--corinthians-black);
+        }
+        
+        .featured-meme {
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .featured-meme img {
+            max-width: 100%;
+            border-radius: 10px;
+            border: 5px solid var(--corinthians-black);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+        
+        .featured-meme img:hover {
+            transform: scale(1.03);
+        }
+        
+        .meme-caption {
+            font-style: italic;
+            margin-top: 10px;
+            color: var(--corinthians-black);
+        }
+        
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 10px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background-color: var(--corinthians-yellow);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -33px;
+            top: 5px;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: var(--corinthians-black);
+            border: 3px solid var(--corinthians-yellow);
+        }
+        
+        .timeline-date {
+            font-weight: bold;
+            color: var(--corinthians-red);
+        }
+        
+        .meme-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .meme-thumbnail {
+            border-radius: 8px;
+            overflow: hidden;
+            border: 3px solid var(--corinthians-black);
+            transition: all 0.3s ease;
+        }
+        
+        .meme-thumbnail:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        
+        .meme-thumbnail img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .quote {
+            background-color: var(--corinthians-black);
+            color: var(--corinthians-white);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 30px 0;
+            position: relative;
+            font-size: 1.2rem;
+            font-style: italic;
+            text-align: center;
+        }
+        
+        .quote::before, .quote::after {
+            content: '"';
+            font-size: 3rem;
+            color: var(--corinthians-yellow);
+            opacity: 0.3;
+            position: absolute;
+        }
+        
+        .quote::before {
+            top: 10px;
+            left: 10px;
+        }
+        
+        .quote::after {
+            bottom: 10px;
+            right: 10px;
+        }
+        
+        .quote-author {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+            font-style: normal;
+        }
+        
+        .footer {
+            background: linear-gradient(135deg, var(--corinthians-black), #000);
+            color: var(--corinthians-white);
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .footer-logo {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--corinthians-white);
+        }
+        
+        .copyright {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        .company-logo {
+            width: 150px;
+            margin: 20px auto;
+            display: block;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+            
+            .logo {
+                font-size: 2rem;
+            }
+            
+            .nav-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .nav-link {
+                margin: 5px 0;
+                width: 80%;
+                text-align: center;
+            }
+            
+            .section {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header class='header'>
+        <div class='container'>
+            <h1 class='logo'>CARLINHOS <span>LIFE</span></h1>
+            <p class='slogan'>"Eu AMO ser estuprado!" - Considerado viado, é visto dando a bunda pra vários homens (e cavalos).</p>
+        </div>
+    </header>
+    
+    <!-- Navigation Section -->
+    <nav class='nav'>
+        <div class='nav-container'>
+            <a class='nav-link' href='#historia'>História</a>
+            <a class='nav-link' href='#memes'>Memes</a>
+            <a class='nav-link' href='#frases'>Frases</a>
+        </div>
+    </nav>
+    
+    <!-- Main Content Wrapper -->
+    <div class='container'>
+        <!-- Main Content Section -->
+        <main class='main'>
+            <!-- Seção História -->
+            <section class='section' id='historia'>
+                <h2 class='section-title'>A Origem do velho viado Carlinhos</h2>
+                
+                <div class='featured-meme'>
+                    <img alt='Carlinhos' class='floating' src='https://images.uncyc.org/pt/7/78/Carlinhos.png'/>
+                    <p class='meme-caption'>O lendário Carlinhos em sua forma mais pura</p>
+                </div>
+                
+                <p>Carlinhos (meme) entrou para o Guinness Book por ser o homem que mais engoliu pintos no mundo (ele AMA ser estuprado!)!</p>
+                
+                <div class='quote'>
+                    "Gangbang, vários homens mijando em mim. Gangbang, vários homens comendo minha bunda."
+                    <span class='quote-author'>- Carlinhos, filósofo contemporâneo</span>
+                </div>
+                
+                <h3>Linha do Tempo da Lenda</h3>
+                <div class='timeline'>
+                    <div class='timeline-item'>
+                        <div class='timeline-date'>dezembro de 2005</div>
+                        <p>Carlinhos fazia postagens em fóruns públicos falando sobre querer dar a bunda, chupar homens e cavalos, beber esperma e urina e até mesmo engolir fezes. Em um desses registros, é possível ver postagens dele combinando fazer sexo com um desconhecido chamado Daniel no mato, mas não se sabe se houve algum vídeo disso.</p>
+                    </div>
+                    <div class='timeline-item'>
+                        <div class='timeline-date'>2012</div>
+                        <p>Carlinhos criou seu próprio blog, mas não teve muito sucesso pois ainda era uma pessoa desconhecida. Devido a essa falta de fama, ele ficou alguns anos longe da pornografia.</p>
+                    </div>
+                    <div class='timeline-item'>
+                        <div class='timeline-date'>2016</div>
+                        <p>Carlinhos resolveu voltar com um novo blog e mais vídeos, desta vez contribuindo mais para alcançar o status de "notório", pois começou a fazer montagens bizarras envolvendo sua face usando o aplicativo Quickmemo, as quais o retratavam chupando cavalos, dando a bunda e em alguns casos junto com sua irmã Cleide, com sua face misturada com a dela. Ele ainda usava essas montagens como foto de perfil no WhatsApp e postava no site pornô XTube.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Seção Galeria de Memes -->
+            <section class='section' id='memes'>
+                <h2 class='section-title'>Galeria de obras do Carlinhos</h2>
+                <div class='meme-gallery'>
+                    <div class='meme-thumbnail'>
+                        <img alt='Carlinhos Bizarro' src='https://uploads.spiritfanfiction.com/historias/capitulos/202310/carlinhos-e-seu-amor-por-cavalos-25217051-291020230116.jpg'/>
+                    </div>
+                    <div class='meme-thumbnail'>
+                        <img alt='Carlinhos Mao Tsé-Tung' src='https://i1.sndcdn.com/artworks-FeNT6vKDAhQ9CQNy-a4yMNw-t1080x1080.jpg'/>
+                    </div>
+                    <div class='meme-thumbnail'>
+                        <img alt='Carlinhos Medalista' src='https://i.pinimg.com/736x/2e/79/b9/2e79b9122746e7c088d634aa8f4c41fd.jpg'/>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Seção Frases Épicas -->
+            <section class='section' id='frases'>
+                <h2 class='section-title'>As Maiores Frases de Carlinhos</h2>
+                <ul>
+                    <li><strong>"Delícia, Cleide. GOSTOSO, Cleide! Ai, como é bom, Cleide..."</strong></li>
+                    <li><strong>"Eu dou a bunda para vários homens, chupo um monte de pinto, dou a bunda pros caras. Eu vou bater o recorde mundial em dar a bunda!"</strong></li>
+                    <li><strong>"Eu AMO ser estuprado!"</strong></li>
+                </ul>
+            </section>
+        </main>
+        
+        <!-- Sidebar Section -->
+        <aside class='sidebar'>
+            <div class='sidebar-section'>
+                <h3>Carlinhos HOJE</h3>
+                <p>Status do homem: <strong>Ativo (passivo também) e relevante</strong></p>
+            </div>
+            
+            <div class='sidebar-section'>
+                <h3>Top Memes</h3>
+                <ol>
+                    <li>A Dalva bebe porra, a Dalva de mini saia sem calcinha, Dalva, você é uma puta! Dalva! A Dalva foi comida por 2050 homens diferentes!</li>
+                    <li>O Carlinhos chupa mais pinto do que as mulheres! Nenhuma mulher chupa mais pinto do que o Carlinhos. O Carlinhos é um chupador de homens.</li>
+                    <li>Eu gosto de dar a bunda!</li>
+                </ol>
+            </div>
+            
+            <div class='sidebar-section'>
+                <h3>Linda obra do Wakaipu</h3>
+                <div style='position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;'>
+                   <iframe allowfullscreen='allowfullscreen' src='https://www.youtube.com/embed/qjt45CK0XP4' style='position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;'></iframe>
+                </div>
+            </div>
+        </aside>
+    </div>
+    
+    <!-- Footer Section -->
+    <footer class='footer'>
+        <div class='footer-logo'>CARLINHOS LIFE</div>
+        <p>O site clandestino do Carlinhos!</p>
+        
+        <img alt='Delta Code Brasil' class='company-logo' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiLZWENOXOoarJ5Pk0xLf9SW9wA6DiIfJ2_cZuekSzW06kRqyOszqKNiMBkVtBSMnD4m_YJU_m9oaMpqM8gbmbkErxr9D40KBDlDQb0_YK078SyGEFbXXTI7QdDmxBwjp5ADQ2jpcZGweZzEmE3aVYC0-qBSAf4-mb1GXYvYYBS2gALoSYkWZOdWEI8TZM/s1600/%CE%94.D%CE%A3LTA%20Code.png'/>
+        <p class='copyright'>© 2025 Δ.DΣLTA CODE BRASIL - Todos os direitos reservados.</p>
+    </footer>
+    
+    <script>
+        // Efeito de rolagem suave
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Efeito especial no header
+        const header = document.querySelector('.header');
+        window.addEventListener('scroll', () => {
+            const scrollPosition = window.scrollY;
+            header.style.backgroundPositionY = scrollPosition * 0.5 + 'px';
+        });
+    </script>
+</body>
+</html>
