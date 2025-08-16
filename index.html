@@ -27,309 +27,36 @@
             line-height: 1.6;
         }
         
-        a {
-            color: var(--corinthians-black);
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
+        a { color: var(--corinthians-black); text-decoration: none; transition: all 0.3s ease; }
+        a:hover { color: var(--corinthians-red); text-shadow: 0 0 5px rgba(255, 0, 0, 0.3); }
         
-        a:hover {
-            color: var(--corinthians-red);
-            text-shadow: 0 0 5px rgba(255, 0, 0, 0.3);
-        }
+        .header { background: linear-gradient(135deg, var(--corinthians-black), #333333); color: var(--corinthians-white); padding: 20px 0; text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.2); position: relative; overflow: hidden; }
+        .logo { font-family: 'Poppins', sans-serif; font-size: 3rem; margin: 0; text-shadow: 3px 3px 0 var(--corinthians-black); position: relative; z-index: 2; }
+        .logo span { color: var(--corinthians-yellow); }
+        .slogan { font-style: italic; margin: 5px 0 0; font-size: 1.2rem; }
         
-        .header {
-            background: linear-gradient(135deg, var(--corinthians-black), #333333);
-            color: var(--corinthians-white);
-            padding: 20px 0;
-            text-align: center;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-            position: relative;
-            overflow: hidden;
-        }
+        .nav { background-color: var(--corinthians-black); padding: 15px 0; position: sticky; top: 0; z-index: 100; }
+        .nav-container { display: flex; justify-content: center; flex-wrap: wrap; }
+        .nav-link { color: var(--corinthians-white); padding: 5px 15px; margin: 0 5px; border-radius: 20px; font-weight: bold; transition: all 0.3s ease; }
+        .nav-link:hover { background-color: var(--corinthians-yellow); color: var(--corinthians-black); transform: translateY(-3px); }
         
-        .header::before {
-            content: "O Carlinhos mama no pau do negão!";
-            position: absolute;
-            top: 10px;
-            left: 0;
-            right: 0;
-            font-size: 16px;
-            color: rgba(255,255,255,0.3);
-            font-weight: bold;
-        }
+        .container { max-width: 1200px; margin: 30px auto; padding: 0 20px; display: grid; grid-template-columns: 1fr 300px; gap: 30px; }
+        .section { background-color: var(--corinthians-white); border-radius: 10px; padding: 25px; margin-bottom: 30px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); border: 3px solid var(--corinthians-black); }
+        .section-title { color: var(--corinthians-black); margin-top: 0; border-bottom: 2px dashed var(--corinthians-black); padding-bottom: 10px; font-family: 'Poppins', sans-serif; }
         
-        .logo {
-            font-family: 'Poppins', sans-serif;
-            font-size: 3rem;
-            margin: 0;
-            text-shadow: 3px 3px 0 var(--corinthians-black);
-            position: relative;
-            z-index: 2;
-        }
+        .sidebar { position: sticky; top: 80px; align-self: start; }
+        .sidebar-section { background-color: var(--corinthians-white); border-radius: 10px; padding: 20px; margin-bottom: 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); border: 3px solid var(--corinthians-black); }
         
-        .logo span {
-            color: var(--corinthians-yellow);
-        }
-        
-        .slogan {
-            font-style: italic;
-            margin: 5px 0 0;
-            font-size: 1.2rem;
-        }
-        
-        .nav {
-            background-color: var(--corinthians-black);
-            padding: 15px 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        
-        .nav-container {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        
-        .nav-link {
-            color: var(--corinthians-white);
-            padding: 5px 15px;
-            margin: 0 5px;
-            border-radius: 20px;
-            font-weight: bold;
-            transition: all 0.3s ease;
-        }
-        
-        .nav-link:hover {
-            background-color: var(--corinthians-yellow);
-            color: var(--corinthians-black);
-            transform: translateY(-3px);
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 30px auto;
-            padding: 0 20px;
-            display: grid;
-            grid-template-columns: 1fr 300px;
-            gap: 30px;
-        }
-        
-        .section {
-            background-color: var(--corinthians-white);
-            border-radius: 10px;
-            padding: 25px;
-            margin-bottom: 30px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            border: 3px solid var(--corinthians-black);
-        }
-        
-        .section-title {
-            color: var(--corinthians-black);
-            margin-top: 0;
-            border-bottom: 2px dashed var(--corinthians-black);
-            padding-bottom: 10px;
-            font-family: 'Poppins', sans-serif;
-        }
-        
-        .sidebar {
-            position: sticky;
-            top: 80px;
-            align-self: start;
-        }
-        
-        .sidebar-section {
-            background-color: var(--corinthians-white);
-            border-radius: 10px;
-            padding: 20px;
-            margin-bottom: 20px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            border: 3px solid var(--corinthians-black);
-        }
-        
-        .featured-meme {
-            text-align: center;
-            margin: 20px 0;
-        }
-        
-        .featured-meme img {
-            max-width: 100%;
-            border-radius: 10px;
-            border: 5px solid var(--corinthians-black);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-            transition: transform 0.3s ease;
-        }
-        
-        .featured-meme img:hover {
-            transform: scale(1.03);
-        }
-        
-        .meme-caption {
-            font-style: italic;
-            margin-top: 10px;
-            color: var(--corinthians-black);
-        }
-        
-        .timeline {
-            position: relative;
-            padding-left: 30px;
-        }
-        
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 10px;
-            top: 0;
-            bottom: 0;
-            width: 3px;
-            background-color: var(--corinthians-yellow);
-        }
-        
-        .timeline-item {
-            position: relative;
-            margin-bottom: 20px;
-            padding-bottom: 20px;
-        }
-        
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -33px;
-            top: 5px;
-            width: 15px;
-            height: 15px;
-            border-radius: 50%;
-            background-color: var(--corinthians-black);
-            border: 3px solid var(--corinthians-yellow);
-        }
-        
-        .timeline-date {
-            font-weight: bold;
-            color: var(--corinthians-red);
-        }
-        
-        .meme-gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 15px;
-            margin-top: 20px;
-        }
-        
-        .meme-thumbnail {
-            border-radius: 8px;
-            overflow: hidden;
-            border: 3px solid var(--corinthians-black);
-            transition: all 0.3s ease;
-        }
-        
-        .meme-thumbnail:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-        }
-        
-        .meme-thumbnail img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-        
-        .quote {
-            background-color: var(--corinthians-black);
-            color: var(--corinthians-white);
-            padding: 20px;
-            border-radius: 10px;
-            margin: 30px 0;
-            position: relative;
-            font-size: 1.2rem;
-            font-style: italic;
-            text-align: center;
-        }
-        
-        .quote::before, .quote::after {
-            content: '"';
-            font-size: 3rem;
-            color: var(--corinthians-yellow);
-            opacity: 0.3;
-            position: absolute;
-        }
-        
-        .quote::before {
-            top: 10px;
-            left: 10px;
-        }
-        
-        .quote::after {
-            bottom: 10px;
-            right: 10px;
-        }
-        
-        .quote-author {
-            display: block;
-            margin-top: 10px;
-            font-weight: bold;
-            font-style: normal;
-        }
-        
-        .footer {
-            background: linear-gradient(135deg, var(--corinthians-black), #000);
-            color: var(--corinthians-white);
-            padding: 40px 0;
-            text-align: center;
-        }
-        
-        .footer-logo {
-            font-size: 2rem;
-            margin-bottom: 20px;
-            color: var(--corinthians-white);
-        }
-        
-        .copyright {
-            margin-top: 20px;
-            font-size: 0.9rem;
-            opacity: 0.8;
-        }
-        
-        .company-logo {
-            width: 150px;
-            margin: 20px auto;
-            display: block;
-        }
-        
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-            100% { transform: translateY(0px); }
-        }
-        
-        .floating {
-            animation: float 3s ease-in-out infinite;
-        }
-        
-        @media (max-width: 768px) {
-            .container {
-                grid-template-columns: 1fr;
-            }
-            
-            .logo {
-                font-size: 2rem;
-            }
-            
-            .nav-container {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .nav-link {
-                margin: 5px 0;
-                width: 80%;
-                text-align: center;
-            }
-            
-            .section {
-                padding: 15px;
-            }
-        }
+        .footer { background: linear-gradient(135deg, var(--corinthians-black), #000); color: var(--corinthians-white); padding: 40px 0; text-align: center; }
+        .footer-logo { font-size: 2rem; margin-bottom: 20px; color: var(--corinthians-white); }
+        .copyright { margin-top: 20px; font-size: 0.9rem; opacity: 0.8; }
+        .company-logo { width: 150px; margin: 20px auto; display: block; }
+
+        /* FIXED ADS */
+        .ad-left, .ad-right { position: fixed; top: 100px; z-index: 9999; }
+        .ad-left { left: 10px; }
+        .ad-right { right: 10px; }
+        .ad-bottom { position: fixed; bottom: 0; left: 50%; transform: translateX(-50%); z-index: 9999; background: #fff; padding: 5px; border: 2px solid #000; }
     </style>
 </head>
 <body>
@@ -340,8 +67,8 @@
             <p class='slogan'>"Eu AMO ser estuprado!" - Considerado viado, é visto dando a bunda pra vários homens (e cavalos).</p>
         </div>
     </header>
-   
-    <!-- Anúncio Topo -->
+
+    <!-- Ad Top Banner -->
     <div style="text-align:center; margin:20px 0;">
         <script type="text/javascript">
             atOptions = {'key':'1f52e3c26df1b42af32787a7ddfe2c83','format':'iframe','height':90,'width':728,'params':{}};
@@ -349,7 +76,7 @@
         <script type="text/javascript" src="//www.highperformanceformat.com/1f52e3c26df1b42af32787a7ddfe2c83/invoke.js"></script>
     </div>
     
-    <!-- Navigation Section -->
+    <!-- Navigation -->
     <nav class='nav'>
         <div class='nav-container'>
             <a class='nav-link' href='#historia'>História</a>
@@ -358,26 +85,24 @@
         </div>
     </nav>
     
-    <!-- Main Content Wrapper -->
+    <!-- Main Content -->
     <div class='container'>
-        <!-- Main Content Section -->
         <main class='main'>
-            <!-- Seção História -->
             <section class='section' id='historia'>
                 <h2 class='section-title'>A Origem do velho viado Carlinhos</h2>
-                
+
                 <div class='featured-meme'>
                     <img alt='Carlinhos' class='floating' src='https://images.uncyc.org/pt/7/78/Carlinhos.png'/>
                     <p class='meme-caption'>O lendário Carlinhos em sua forma mais pura</p>
                 </div>
-                
+
                 <p>Carlinhos (meme) entrou para o Guinness Book por ser o homem que mais engoliu pintos no mundo (ele AMA ser estuprado!)!</p>
-                
+
                 <div class='quote'>
                     "Gangbang, vários homens mijando em mim. Gangbang, vários homens comendo minha bunda."
                     <span class='quote-author'>- Carlinhos, filósofo contemporâneo</span>
                 </div>
-                
+
                 <h3>Linha do Tempo da Lenda</h3>
                 <div class='timeline'>
                     <div class='timeline-item'>
@@ -393,17 +118,16 @@
                         <p>Carlinhos resolveu voltar com um novo blog e mais vídeos, desta vez contribuindo mais para alcançar o status de "notório", pois começou a fazer montagens bizarras envolvendo sua face usando o aplicativo Quickmemo, as quais o retratavam chupando cavalos, dando a bunda e em alguns casos junto com sua irmã Cleide, com sua face misturada com a dela. Ele ainda usava essas montagens como foto de perfil no WhatsApp e postava no site pornô XTube.</p>
                     </div>
                 </div>
-                 <!-- Anúncio dentro do conteúdo -->
+
+                <!-- Inline Ad -->
                 <div style="text-align:center; margin:20px 0;">
                     <script type="text/javascript">
                         atOptions = {'key':'6a41d7524b3dcbb94e3b7cf2a3daeb91','format':'iframe','height':250,'width':300,'params':{}};
                     </script>
                     <script type="text/javascript" src="//www.highperformanceformat.com/6a41d7524b3dcbb94e3b7cf2a3daeb91/invoke.js"></script>
                 </div>
-                
             </section>
-            
-            <!-- Seção Galeria de Memes -->
+
             <section class='section' id='memes'>
                 <h2 class='section-title'>Galeria de obras do Carlinhos</h2>
                 <div class='meme-gallery'>
@@ -418,8 +142,7 @@
                     </div>
                 </div>
             </section>
-            
-            <!-- Seção Frases Épicas -->
+
             <section class='section' id='frases'>
                 <h2 class='section-title'>As Maiores Frases de Carlinhos</h2>
                 <ul>
@@ -430,32 +153,13 @@
             </section>
         </main>
         
-        <!-- Sidebar Section -->
-         <!-- Sidebar -->
-        <aside class='sidebar'>
-            <div class='sidebar-section'>
-                <h3>Publicidade</h3>
-                <!-- 160x600 -->
-                <script type="text/javascript">
-                    atOptions = {'key':'e807006951cb0890975e83ca570945aa','format':'iframe','height':600,'width':160,'params':{}};
-                </script>
-                <script type="text/javascript" src="//www.highperformanceformat.com/e807006951cb0890975e83ca570945aa/invoke.js"></script>
-            </div>
-            
-            <div class='sidebar-section'>
-                <!-- 160x300 -->
-                <script type="text/javascript">
-                    atOptions = {'key':'87c892039a45f9e3ac83a5a98201a927','format':'iframe','height':300,'width':160,'params':{}};
-                </script>
-                <script type="text/javascript" src="//www.highperformanceformat.com/87c892039a45f9e3ac83a5a98201a927/invoke.js"></script>
-            </div>
-            
+        <!-- Sidebar -->
         <aside class='sidebar'>
             <div class='sidebar-section'>
                 <h3>Carlinhos HOJE</h3>
                 <p>Status do homem: <strong>Ativo (passivo também) e relevante</strong></p>
             </div>
-            
+
             <div class='sidebar-section'>
                 <h3>Top Memes</h3>
                 <ol>
@@ -464,7 +168,7 @@
                     <li>Eu gosto de dar a bunda!</li>
                 </ol>
             </div>
-            
+
             <div class='sidebar-section'>
                 <h3>Linda obra do Wakaipu</h3>
                 <div style='position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;'>
@@ -474,21 +178,12 @@
         </aside>
     </div>
     
-    <!-- Footer Section -->
+    <!-- Footer -->
     <footer class='footer'>
         <div class='footer-logo'>CARLINHOS LIFE</div>
         <p>O site clandestino do Carlinhos!</p>
-        <!-- Banner Rodapé -->
-        <div style="margin:20px 0;">
-            <script type="text/javascript">
-                atOptions = {'key':'67f81053e36b5a1e1d19f4af1a9d60ed','format':'iframe','height':60,'width':468,'params':{}};
-            </script>
-            <script type="text/javascript" src="//www.highperformanceformat.com/67f81053e36b5a1e1d19f4af1a9d60ed/invoke.js"></script>
-        </div>
-        
-        <img alt='Delta Code Brasil' class='company-logo' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiLZWENOXOoarJ5Pk0xLf9SW9wA6DiIfJ2_cZuekSzW06kRqyOszqKNiMBkVtBSMnD4m_YJU_m9oaMpqM8gbmbkErxr9D40KBDlDQb0_YK078SyGEFbXXTI7QdDmxBwjp5ADQ2jpcZGweZzEmE3aVYC0-qBSAf4-mb1GXYvYYBS2gALoSYkWZOdWEI8TZM/s1600/%CE%94.D%CE%A3LTA%20Code.png'/>
-        <p class='copyright'>© 2025 Δ.DΣLTA CODE BRASIL - Todos os direitos reservados.</p>
-    <!-- Scripts extras -->
+
+        <!-- Extra Ads -->
         <script type='text/javascript' src='//pl27428933.profitableratecpm.com/c2/12/58/c212584ca9fe62196f3897dba491a1c0.js'></script>
         <script type='text/javascript' src='//pl27428953.profitableratecpm.com/0f/70/27/0f7027dc88f610c7303da2c53d70ce6c.js'></script>
         <script type="text/javascript">
@@ -497,13 +192,35 @@
         <script type="text/javascript" src="//www.highperformanceformat.com/d93864849e8bbe5554f9d45f6a8753fa/invoke.js"></script>
         <script async="async" data-cfasync="false" src="//pl27428924.profitableratecpm.com/e5af35013b0f33e529da1d14bfc64916/invoke.js"></script>
         <div id="container-e5af35013b0f33e529da1d14bfc64916"></div>
-        
-        <!-- Link clicável -->
+
         <p><a href="https://www.profitableratecpm.com/kipd7u4k?key=f51e449f6129bec364e9b698a2c1a844" target="_blank">👉 Clique aqui para acessar a oferta</a></p>
-        
+        <p class='copyright'>© 2025 Δ.DΣLTA CODE BRASIL - Todos os direitos reservados.</p>
     </footer>
-    
+
+    <!-- Fixed Ads -->
+    <div class="ad-left">
+        <script type="text/javascript">
+            atOptions = {'key':'e807006951cb0890975e83ca570945aa','format':'iframe','height':600,'width':160,'params':{}};
+        </script>
+        <script type="text/javascript" src="//www.highperformanceformat.com/e807006951cb0890975e83ca570945aa/invoke.js"></script>
+    </div>
+
+    <div class="ad-right">
+        <script type="text/javascript">
+            atOptions = {'key':'87c892039a45f9e3ac83a5a98201a927','format':'iframe','height':300,'width':160,'params':{}};
+        </script>
+        <script type="text/javascript" src="//www.highperformanceformat.com/87c892039a45f9e3ac83a5a98201a927/invoke.js"></script>
+    </div>
+
+    <div class="ad-bottom">
+        <script type="text/javascript">
+            atOptions = {'key':'67f81053e36b5a1e1d19f4af1a9d60ed','format':'iframe','height':60,'width':468,'params':{}};
+        </script>
+        <script type="text/javascript" src="//www.highperformanceformat.com/67f81053e36b5a1e1d19f4af1a9d60ed/invoke.js"></script>
+    </div>
+
     <script>
+        <script>
         // Efeito de rolagem suave
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
