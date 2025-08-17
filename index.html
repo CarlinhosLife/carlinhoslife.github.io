@@ -1,429 +1,533 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-theme="light">
 <head>
     <meta charset='utf-8'/>
     <meta content='width=device-width, initial-scale=1' name='viewport'/>
     <title>Carlinhos Life - O site clandestino do Carlinhos!</title>
     <meta content='Carlinhos Life - O site clandestino do Carlinhos!' name='description'/>
     <meta content='carlinhos, meme brasileiro, memes, carlinhos, cavalos, viado, cultura internet' name='keywords'/>
+    <meta name="color-scheme" content="dark light" />
     
-    <link href='https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&amp;family=Poppins:wght@400;600;700&amp;display=swap' rel='stylesheet'/>
+    <link href='https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap' rel='stylesheet'/>
     
     <style>
-    :root {
-        --corinthians-black: #000000;
-        --corinthians-white: #FFFFFF;
-        --corinthians-gray: #F5F5F5;
-        --corinthians-red: #FF0000;
-        --corinthians-yellow: #FFD700;
-        /* New variables from second CSS */
-        --bg: #0b0e14;
-        --panel: #121826;
-        --ink: #e6edf3;
-        --muted: #9aa6b2;
-        --brand: #7c5cff;
-        --brand-2: #22c55e;
-        --ring: rgba(124,92,255,0.4);
-        --shadow: 0 8px 24px rgba(0,0,0,.25);
-        --radius: 16px;
-        --bg-light: #f7f8fa;
-        --panel-light: #ffffff;
-        --ink-light: #0b1220;
-        --muted-light: #515e72;
-    }
-    
-    /* Reset and base styles */
-    *, *::before, *::after { box-sizing: border-box; }
-    html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
-    body {
-        font-family: 'Comic Neue', cursive, sans-serif;
-        background-color: var(--corinthians-gray);
-        color: var(--corinthians-black);
-        margin: 0;
-        padding: 0;
-        line-height: 1.6;
-    }
-    img { max-width: 100%; height: auto; display: block; }
-    
-    /* Dark mode */
-    html:not([data-theme="light"]) body { background: var(--bg); color: var(--ink); }
-    html:not([data-theme="light"]) .surface { background: var(--panel); color: var(--ink); box-shadow: var(--shadow); border: 1px solid rgba(255,255,255,0.06); }
-    html:not([data-theme="light"]) .muted { color: var(--muted); }
-    
-    /* Light mode */
-    [data-theme="light"] body { background: var(--bg-light); color: var(--ink-light); }
-    [data-theme="light"] .surface { background: var(--panel-light); color: var(--ink-light); box-shadow: 0 8px 24px rgba(2,10,28,.06); border: 1px solid rgba(2,10,28,0.08); }
-    [data-theme="light"] .muted { color: var(--muted-light); }
-    
-    /* Links */
-    a { color: var(--corinthians-black); text-decoration: none; transition: all 0.3s ease; }
-    a:hover { color: var(--corinthians-red); text-shadow: 0 0 5px rgba(255, 0, 0, 0.3); }
-    :focus-visible { outline: 2px solid var(--ring); outline-offset: 3px; border-radius: 8px; }
-    
-    /* Header */
-    .header { 
-        background: linear-gradient(135deg, var(--corinthians-black), #333333); 
-        color: var(--corinthians-white); 
-        padding: 20px 0; 
-        text-align: center; 
-        box-shadow: 0 4px 12px rgba(0,0,0,0.2); 
-        position: relative; 
-        overflow: hidden; 
-    }
-    .logo { 
-        font-family: 'Poppins', sans-serif; 
-        font-size: 3rem; 
-        margin: 0; 
-        text-shadow: 3px 3px 0 var(--corinthians-black); 
-        position: relative; 
-        z-index: 2; 
-    }
-    .logo span { color: var(--corinthians-yellow); }
-    .slogan { font-style: italic; margin: 5px 0 0; font-size: 1.2rem; }
-    
-    /* Navigation */
-    .nav { 
-        background-color: var(--corinthians-black); 
-        padding: 15px 0; 
-        position: sticky; 
-        top: 0; 
-        z-index: 100; 
-    }
-    .nav-container { 
-        display: flex; 
-        justify-content: center; 
-        flex-wrap: wrap; 
-    }
-    .nav-link { 
-        color: var(--corinthians-white); 
-        padding: 5px 15px; 
-        margin: 0 5px; 
-        border-radius: 20px; 
-        font-weight: bold; 
-        transition: all 0.3s ease; 
-    }
-    .nav-link:hover { 
-        background-color: var(--corinthians-yellow); 
-        color: var(--corinthians-black); 
-        transform: translateY(-3px); 
-    }
-    
-    /* Main content */
-    .container { 
-        max-width: 1200px; 
-        margin: 30px auto; 
-        padding: 0 20px; 
-        display: grid; 
-        grid-template-columns: 1fr 300px; 
-        gap: 30px; 
-    }
-    .section { 
-        background-color: var(--corinthians-white); 
-        border-radius: 10px; 
-        padding: 25px; 
-        margin-bottom: 30px; 
-        box-shadow: 0 2px 10px rgba(0,0,0,0.1); 
-        border: 3px solid var(--corinthians-black); 
-    }
-    .section-title { 
-        color: var(--corinthians-black); 
-        margin-top: 0; 
-        border-bottom: 2px dashed var(--corinthians-black); 
-        padding-bottom: 10px; 
-        font-family: 'Poppins', sans-serif; 
-    }
-    
-    /* Sidebar */
-    .sidebar { 
-        position: sticky; 
-        top: 80px; 
-        align-self: start; 
-    }
-    .sidebar-section { 
-        background-color: var(--corinthians-white); 
-        border-radius: 10px; 
-        padding: 20px; 
-        margin-bottom: 20px; 
-        box-shadow: 0 2px 10px rgba(0,0,0,0.1); 
-        border: 3px solid var(--corinthians-black); 
-    }
-    
-    /* Footer */
-    .footer { 
-        background: linear-gradient(135deg, var(--corinthians-black), #000); 
-        color: var(--corinthians-white); 
-        padding: 40px 0; 
-        text-align: center; 
-    }
-    .footer-logo { 
-        font-size: 2rem; 
-        margin-bottom: 20px; 
-        color: var(--corinthians-white); 
-    }
-    .copyright { 
-        margin-top: 20px; 
-        font-size: 0.9rem; 
-        opacity: 0.8; 
-    }
-    .company-logo { 
-        width: 150px; 
-        margin: 20px auto; 
-        display: block; 
-    }
-
-    /* FIXED ADS */
-    .ad-left, .ad-right { position: fixed; top: 100px; z-index: 9999; }
-    .ad-left { left: 10px; }
-    .ad-right { right: 10px; }
-    .ad-bottom { 
-        position: fixed; 
-        bottom: 0; 
-        left: 50%; 
-        transform: translateX(-50%); 
-        z-index: 9999; 
-        background: #fff; 
-        padding: 5px; 
-        border: 2px solid #000; 
-    }
-    
-    /* New styles from second CSS */
-    .surface { 
-        background-color: var(--corinthians-white); 
-        border-radius: var(--radius); 
-        padding: 18px; 
-    }
-    
-    .muted { opacity: .8; }
-    .spacer { height: 12px; }
-    .center { text-align: center; }
-    
-    /* Timeline */
-    .timeline { display: grid; gap: 12px; }
-    .timeline-item { 
-        padding: 14px; 
-        border-radius: 12px; 
-        border: 1px dashed rgba(255,255,255,.12); 
-    }
-    [data-theme="light"] .timeline-item { border-color: rgba(2,10,28,.14); }
-    .timeline-date { font-weight: 700; opacity: .8; margin-bottom: 6px; }
-    
-    /* Masonry gallery */
-    .masonry { columns: 1; column-gap: 12px; }
-    @media (min-width: 480px) { .masonry { columns: 2; } }
-    @media (min-width: 860px) { .masonry { columns: 3; } }
-    .masonry figure { 
-        break-inside: avoid; 
-        margin: 0 0 12px; 
-        border-radius: 14px; 
-        overflow: hidden; 
-    }
-    .masonry figcaption { 
-        font-size: 12px; 
-        opacity: .7; 
-        padding: 6px 8px; 
-    }
-    
-    /* Responsive adjustments */
-    @media (max-width: 980px) {
-        .container { grid-template-columns: 1fr; }
-    }
-    
-    @media (max-width: 760px) {
-        .menu-toggle { display: inline-flex; }
-        .menu { display: none; position: absolute; top: 60px; left: 0; right: 0; padding: 12px 16px; }
-        .menu.open { display: grid; gap: 8px; }
-        .menu .chip { width: 100%; justify-content: center; }
-    }
-    
-    @media (max-width: 860px) {
-        .ad-fixed { display: none; }
-    }
-    
-    /* Print styles */
-    @media print {
-        .topbar, .ad-slot, .ad-fixed, .menu-toggle { display: none !important; }
-        .card { box-shadow: none !important; border: 1px solid #ddd; }
-        body { background: #fff !important; color: #000 !important; }
-    }
-</style>
+        :root {
+            /* Cores modo claro */
+            --color-primary: #d10000;
+            --color-secondary: #ffd700;
+            --color-bg: #f8f8f8;
+            --color-card: #ffffff;
+            --color-text: #222222;
+            --color-text-muted: #555555;
+            --color-border: #e0e0e0;
+            
+            /* Cores modo escuro */
+            --color-primary-dark: #ff4d4d;
+            --color-secondary-dark: #ffea00;
+            --color-bg-dark: #121212;
+            --color-card-dark: #1e1e1e;
+            --color-text-dark: #f0f0f0;
+            --color-text-muted-dark: #aaaaaa;
+            --color-border-dark: #333333;
+            
+            /* Espaçamentos */
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 1.5rem;
+            --spacing-lg: 2rem;
+            --spacing-xl: 3rem;
+            
+            /* Bordas */
+            --border-radius: 8px;
+            --border-radius-lg: 16px;
+        }
+        
+        /* Reset e estilos base */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        html {
+            -webkit-text-size-adjust: 100%;
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.6;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        
+        /* Modo escuro */
+        [data-theme="dark"] body {
+            background-color: var(--color-bg-dark);
+            color: var(--color-text-dark);
+        }
+        
+        /* Container principal */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+        
+        /* Cabeçalho */
+        .header {
+            background-color: var(--color-primary);
+            color: white;
+            padding: var(--spacing-lg) 0;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        [data-theme="dark"] .header {
+            background-color: var(--color-primary-dark);
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        .logo span {
+            color: var(--color-secondary);
+        }
+        
+        [data-theme="dark"] .logo span {
+            color: var(--color-secondary-dark);
+        }
+        
+        .slogan {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        /* Navegação */
+        .nav {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-md);
+            padding: var(--spacing-sm) 0;
+            background-color: var(--color-card);
+            border-bottom: 1px solid var(--color-border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        [data-theme="dark"] .nav {
+            background-color: var(--color-card-dark);
+            border-bottom-color: var(--color-border-dark);
+        }
+        
+        .nav-link {
+            color: var(--color-text);
+            font-weight: 600;
+            padding: var(--spacing-xs) var(--spacing-sm);
+            border-radius: var(--border-radius);
+            transition: all 0.3s ease;
+        }
+        
+        [data-theme="dark"] .nav-link {
+            color: var(--color-text-dark);
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            background-color: var(--color-primary);
+            color: white;
+        }
+        
+        [data-theme="dark"] .nav-link:hover, 
+        [data-theme="dark"] .nav-link.active {
+            background-color: var(--color-primary-dark);
+        }
+        
+        /* Botão tema */
+        .theme-toggle {
+            position: absolute;
+            right: var(--spacing-md);
+            top: var(--spacing-sm);
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+        
+        /* Conteúdo principal */
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: var(--spacing-lg);
+            margin: var(--spacing-lg) 0;
+        }
+        
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Seções */
+        .section {
+            background-color: var(--color-card);
+            border-radius: var(--border-radius-lg);
+            padding: var(--spacing-lg);
+            margin-bottom: var(--spacing-lg);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            border: 1px solid var(--color-border);
+        }
+        
+        [data-theme="dark"] .section {
+            background-color: var(--color-card-dark);
+            border-color: var(--color-border-dark);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        
+        .section-title {
+            font-size: 1.5rem;
+            margin-bottom: var(--spacing-md);
+            color: var(--color-primary);
+            border-bottom: 2px solid var(--color-primary);
+            padding-bottom: var(--spacing-xs);
+        }
+        
+        [data-theme="dark"] .section-title {
+            color: var(--color-primary-dark);
+            border-bottom-color: var(--color-primary-dark);
+        }
+        
+        /* Galeria de imagens horizontais */
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: var(--spacing-md);
+            margin: var(--spacing-md) 0;
+        }
+        
+        .gallery-item {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            aspect-ratio: 16/9;
+            position: relative;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+        
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: var(--spacing-xs);
+            font-size: 0.9rem;
+            text-align: center;
+        }
+        
+        /* Sidebar */
+        .sidebar {
+            position: sticky;
+            top: 80px;
+        }
+        
+        .sidebar-section {
+            background-color: var(--color-card);
+            border-radius: var(--border-radius-lg);
+            padding: var(--spacing-lg);
+            margin-bottom: var(--spacing-lg);
+            border: 1px solid var(--color-border);
+        }
+        
+        [data-theme="dark"] .sidebar-section {
+            background-color: var(--color-card-dark);
+            border-color: var(--color-border-dark);
+        }
+        
+        /* Rodapé */
+        .footer {
+            background-color: var(--color-primary);
+            color: white;
+            padding: var(--spacing-xl) 0;
+            text-align: center;
+            margin-top: var(--spacing-xl);
+        }
+        
+        [data-theme="dark"] .footer {
+            background-color: var(--color-primary-dark);
+        }
+        
+        .footer-logo {
+            font-size: 2rem;
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .copyright {
+            margin-top: var(--spacing-md);
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        /* Linha do tempo */
+        .timeline {
+            display: grid;
+            gap: var(--spacing-md);
+        }
+        
+        .timeline-item {
+            padding: var(--spacing-md);
+            border-radius: var(--border-radius);
+            border: 1px dashed var(--color-border);
+        }
+        
+        [data-theme="dark"] .timeline-item {
+            border-color: var(--color-border-dark);
+        }
+        
+        .timeline-date {
+            font-weight: 700;
+            color: var(--color-primary);
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        [data-theme="dark"] .timeline-date {
+            color: var(--color-primary-dark);
+        }
+        
+        /* Citação */
+        .quote {
+            font-style: italic;
+            padding: var(--spacing-md);
+            border-left: 4px solid var(--color-primary);
+            background-color: rgba(209, 0, 0, 0.05);
+            margin: var(--spacing-md) 0;
+        }
+        
+        [data-theme="dark"] .quote {
+            border-left-color: var(--color-primary-dark);
+            background-color: rgba(255, 77, 77, 0.1);
+        }
+        
+        .quote-author {
+            display: block;
+            font-weight: 600;
+            margin-top: var(--spacing-xs);
+        }
+        
+        /* Listas */
+        ul, ol {
+            padding-left: var(--spacing-md);
+            margin: var(--spacing-md) 0;
+        }
+        
+        li {
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        /* Responsividade */
+        @media (max-width: 600px) {
+            .logo {
+                font-size: 2rem;
+            }
+            
+            .slogan {
+                font-size: 1rem;
+            }
+            
+            .nav {
+                flex-wrap: wrap;
+                gap: var(--spacing-xs);
+            }
+            
+            .section {
+                padding: var(--spacing-md);
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Header Section -->
     <header class='header'>
+        <button class="theme-toggle" id="themeToggle">🌓</button>
         <div class='container'>
             <h1 class='logo'>CARLINHOS <span>LIFE</span></h1>
-            <p class='slogan'>"Eu AMO ser estuprado!" - Considerado viado, é visto dando a bunda pra vários homens (e cavalos).</p>
+            <p class='slogan'>O site oficial do fenômeno da internet</p>
         </div>
     </header>
 
-    <!-- Ad Top Banner -->
-    <div style="text-align:center; margin:20px 0;">
-        <script type="text/javascript">
-            atOptions = {'key':'1f52e3c26df1b42af32787a7ddfe2c83','format':'iframe','height':90,'width':728,'params':{}};
-        </script>
-        <script type="text/javascript" src="//www.highperformanceformat.com/1f52e3c26df1b42af32787a7ddfe2c83/invoke.js"></script>
-    </div>
-    
     <!-- Navigation -->
     <nav class='nav'>
-        <div class='nav-container'>
-            <a class='nav-link' href='#historia'>História</a>
+        <div class='container'>
+            <a class='nav-link active' href='#historia'>História</a>
             <a class='nav-link' href='#memes'>Memes</a>
             <a class='nav-link' href='#frases'>Frases</a>
+            <a class='nav-link' href='#galeria'>Galeria</a>
         </div>
     </nav>
     
     <!-- Main Content -->
-    <div class='container'>
-        <main class='main'>
-            <section class='section' id='historia'>
-                <h2 class='section-title'>A Origem do velho viado Carlinhos</h2>
+    <main class='container'>
+        <div class="main-content">
+            <div class="main-column">
+                <section class='section' id='historia'>
+                    <h2 class='section-title'>A Origem do Fenômeno</h2>
 
-                <div class='featured-meme'>
-                    <img alt='Carlinhos' class='floating' src='https://images.uncyc.org/pt/7/78/Carlinhos.png'/>
-                    <p class='meme-caption'>O lendário Carlinhos em sua forma mais pura</p>
-                </div>
-
-                <p>Carlinhos (meme) entrou para o Guinness Book por ser o homem que mais engoliu pintos no mundo (ele AMA ser estuprado!)!</p>
-
-                <div class='quote'>
-                    "Gangbang, vários homens mijando em mim. Gangbang, vários homens comendo minha bunda."
-                    <span class='quote-author'>- Carlinhos, filósofo contemporâneo</span>
-                </div>
-
-                <h3>Linha do Tempo da Lenda</h3>
-                <div class='timeline'>
-                    <div class='timeline-item'>
-                        <div class='timeline-date'>dezembro de 2005</div>
-                        <p>Carlinhos fazia postagens em fóruns públicos falando sobre querer dar a bunda, chupar homens e cavalos, beber esperma e urina e até mesmo engolir fezes. Em um desses registros, é possível ver postagens dele combinando fazer sexo com um desconhecido chamado Daniel no mato, mas não se sabe se houve algum vídeo disso.</p>
+                    <div class="image-gallery">
+                        <div class="gallery-item">
+                            <img src='https://images.uncyc.org/pt/7/78/Carlinhos.png' alt='Carlinhos'/>
+                            <div class="gallery-caption">O lendário Carlinhos</div>
+                        </div>
                     </div>
-                    <div class='timeline-item'>
-                        <div class='timeline-date'>2012</div>
-                        <p>Carlinhos criou seu próprio blog, mas não teve muito sucesso pois ainda era uma pessoa desconhecida. Devido a essa falta de fama, ele ficou alguns anos longe da pornografia.</p>
-                    </div>
-                    <div class='timeline-item'>
-                        <div class='timeline-date'>2016</div>
-                        <p>Carlinhos resolveu voltar com um novo blog e mais vídeos, desta vez contribuindo mais para alcançar o status de "notório", pois começou a fazer montagens bizarras envolvendo sua face usando o aplicativo Quickmemo, as quais o retratavam chupando cavalos, dando a bunda e em alguns casos junto com sua irmã Cleide, com sua face misturada com a dela. Ele ainda usava essas montagens como foto de perfil no WhatsApp e postava no site pornô XTube.</p>
-                    </div>
-                </div>
 
-                <!-- Inline Ad -->
-                <div style="text-align:center; margin:20px 0;">
-                    <script type="text/javascript">
-                        atOptions = {'key':'6a41d7524b3dcbb94e3b7cf2a3daeb91','format':'iframe','height':250,'width':300,'params':{}};
-                    </script>
-                    <script type="text/javascript" src="//www.highperformanceformat.com/6a41d7524b3dcbb94e3b7cf2a3daeb91/invoke.js"></script>
-                </div>
-            </section>
+                    <p>Carlinhos se tornou um fenômeno da internet brasileira com suas declarações polêmicas e memes que viralizaram.</p>
 
-            <section class='section' id='memes'>
-                <h2 class='section-title'>Galeria de obras do Carlinhos</h2>
-                <div class='meme-gallery'>
-                    <div class='meme-thumbnail'>
-                        <img alt='Carlinhos Bizarro' src='https://uploads.spiritfanfiction.com/historias/capitulos/202310/carlinhos-e-seu-amor-por-cavalos-25217051-291020230116.jpg'/>
+                    <div class='quote'>
+                        "Gangbang, vários homens mijando em mim. Gangbang, vários homens comendo minha bunda."
+                        <span class='quote-author'>- Carlinhos</span>
                     </div>
-                    <div class='meme-thumbnail'>
-                        <img alt='Carlinhos Mao Tsé-Tung' src='https://i1.sndcdn.com/artworks-FeNT6vKDAhQ9CQNy-a4yMNw-t1080x1080.jpg'/>
-                    </div>
-                    <div class='meme-thumbnail'>
-                        <img alt='Carlinhos Medalista' src='https://i.pinimg.com/736x/2e/79/b9/2e79b9122746e7c088d634aa8f4c41fd.jpg'/>
-                    </div>
-                </div>
-            </section>
 
-            <section class='section' id='frases'>
-                <h2 class='section-title'>As Maiores Frases de Carlinhos</h2>
-                <ul>
-                    <li><strong>"Delícia, Cleide. GOSTOSO, Cleide! Ai, como é bom, Cleide..."</strong></li>
-                    <li><strong>"Eu dou a bunda para vários homens, chupo um monte de pinto, dou a bunda pros caras. Eu vou bater o recorde mundial em dar a bunda!"</strong></li>
-                    <li><strong>"Eu AMO ser estuprado!"</strong></li>
-                </ul>
-            </section>
-        </main>
-        
-        <!-- Sidebar -->
-        <aside class='sidebar'>
-            <div class='sidebar-section'>
-                <h3>Carlinhos HOJE</h3>
-                <p>Status do homem: <strong>Ativo (passivo também) e relevante</strong></p>
+                    <h3 class="section-title">Linha do Tempo</h3>
+                    <div class='timeline'>
+                        <div class='timeline-item'>
+                            <div class='timeline-date'>dezembro de 2005</div>
+                            <p>Primeiras aparições de Carlinhos em fóruns da internet com postagens polêmicas.</p>
+                        </div>
+                        <div class='timeline-item'>
+                            <div class='timeline-date'>2012</div>
+                            <p>Criação de seu primeiro blog, que não obteve grande repercussão inicial.</p>
+                        </div>
+                        <div class='timeline-item'>
+                            <div class='timeline-date'>2016</div>
+                            <p>Retorno às atividades online com vídeos e montagens que o tornaram notório.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class='section' id='memes'>
+                    <h2 class='section-title'>Memes Clássicos</h2>
+                    <div class='image-gallery'>
+                        <div class='gallery-item'>
+                            <img src='https://uploads.spiritfanfiction.com/historias/capitulos/202310/carlinhos-e-seu-amor-por-cavalos-25217051-291020230116.jpg' alt='Carlinhos e cavalos'/>
+                            <div class="gallery-caption">Carlinhos e cavalos</div>
+                        </div>
+                        <div class='gallery-item'>
+                            <img src='https://i1.sndcdn.com/artworks-FeNT6vKDAhQ9CQNy-a4yMNw-t1080x1080.jpg' alt='Carlinhos Mao Tsé-Tung'/>
+                            <div class="gallery-caption">Versão Mao Tsé-Tung</div>
+                        </div>
+                        <div class='gallery-item'>
+                            <img src='https://i.pinimg.com/736x/2e/79/b9/2e79b9122746e7c088d634aa8f4c41fd.jpg' alt='Carlinhos medalhista'/>
+                            <div class="gallery-caption">Carlinhos medalhista</div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class='section' id='frases'>
+                    <h2 class='section-title'>Frases Marcantes</h2>
+                    <ul>
+                        <li><strong>"Delícia, Cleide. GOSTOSO, Cleide! Ai, como é bom, Cleide..."</strong></li>
+                        <li><strong>"Eu dou a bunda para vários homens, chupo um monte de pinto, dou a bunda pros caras."</strong></li>
+                        <li><strong>"Eu AMO ser estuprado!"</strong></li>
+                    </ul>
+                </section>
             </div>
-
-            <div class='sidebar-section'>
-                <h3>Top Memes</h3>
-                <ol>
-                    <li>A Dalva bebe porra, a Dalva de mini saia sem calcinha, Dalva, você é uma puta! Dalva! A Dalva foi comida por 2050 homens diferentes!</li>
-                    <li>O Carlinhos chupa mais pinto do que as mulheres! Nenhuma mulher chupa mais pinto do que o Carlinhos. O Carlinhos é um chupador de homens.</li>
-                    <li>Eu gosto de dar a bunda!</li>
-                </ol>
-            </div>
-
-            <div class='sidebar-section'>
-                <h3>Linda obra do Wakaipu</h3>
-                <div style='position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;'>
-                   <iframe allowfullscreen='allowfullscreen' src='https://www.youtube.com/embed/qjt45CK0XP4' style='position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;'></iframe>
+            
+            <!-- Sidebar -->
+            <aside class='sidebar'>
+                <div class='sidebar-section'>
+                    <h3 class="section-title">Carlinhos HOJE</h3>
+                    <p>Status: <strong>Ativo e relevante</strong></p>
                 </div>
-            </div>
-        </aside>
-    </div>
+
+                <div class='sidebar-section'>
+                    <h3 class="section-title">Top Memes</h3>
+                    <ol>
+                        <li>A Dalva bebe porra, a Dalva de mini saia sem calcinha</li>
+                        <li>O Carlinhos chupa mais pinto do que as mulheres</li>
+                        <li>Eu gosto de dar a bunda!</li>
+                    </ol>
+                </div>
+
+                <div class='sidebar-section'>
+                    <h3 class="section-title">Vídeo em Destaque</h3>
+                    <div style='position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: var(--border-radius);'>
+                       <iframe allowfullscreen='allowfullscreen' src='https://www.youtube.com/embed/qjt45CK0XP4' style='position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;'></iframe>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </main>
     
     <!-- Footer -->
     <footer class='footer'>
-        <div class='footer-logo'>CARLINHOS LIFE</div>
-        <p>O site clandestino do Carlinhos!</p>
-
-        <!-- Extra Ads -->
-        <script type='text/javascript' src='//pl27428933.profitableratecpm.com/c2/12/58/c212584ca9fe62196f3897dba491a1c0.js'></script>
-        <script type='text/javascript' src='//pl27428953.profitableratecpm.com/0f/70/27/0f7027dc88f610c7303da2c53d70ce6c.js'></script>
-        <script type="text/javascript">
-            atOptions = {'key':'d93864849e8bbe5554f9d45f6a8753fa','format':'iframe','height':50,'width':320,'params':{}};
-        </script>
-        <script type="text/javascript" src="//www.highperformanceformat.com/d93864849e8bbe5554f9d45f6a8753fa/invoke.js"></script>
-        <script async="async" data-cfasync="false" src="//pl27428924.profitableratecpm.com/e5af35013b0f33e529da1d14bfc64916/invoke.js"></script>
-        <div id="container-e5af35013b0f33e529da1d14bfc64916"></div>
-
-        <p><a href="https://www.profitableratecpm.com/kipd7u4k?key=f51e449f6129bec364e9b698a2c1a844" target="_blank">👉 Clique aqui para acessar a oferta</a></p>
-        <p class='copyright'>© 2025 Δ.DΣLTA CODE BRASIL - Todos os direitos reservados.</p>
+        <div class='container'>
+            <div class='footer-logo'>CARLINHOS LIFE</div>
+            <p>O site oficial do fenômeno da internet</p>
+            <p class='copyright'>© 2023 - Todos os direitos reservados.</p>
+        </div>
     </footer>
 
-    <!-- Fixed Ads -->
-    <div class="ad-left">
-        <script type="text/javascript">
-            atOptions = {'key':'e807006951cb0890975e83ca570945aa','format':'iframe','height':600,'width':160,'params':{}};
-        </script>
-        <script type="text/javascript" src="//www.highperformanceformat.com/e807006951cb0890975e83ca570945aa/invoke.js"></script>
-    </div>
-
-    <div class="ad-right">
-        <script type="text/javascript">
-            atOptions = {'key':'87c892039a45f9e3ac83a5a98201a927','format':'iframe','height':300,'width':160,'params':{}};
-        </script>
-        <script type="text/javascript" src="//www.highperformanceformat.com/87c892039a45f9e3ac83a5a98201a927/invoke.js"></script>
-    </div>
-
-    <div class="ad-bottom">
-        <script type="text/javascript">
-            atOptions = {'key':'67f81053e36b5a1e1d19f4af1a9d60ed','format':'iframe','height':60,'width':468,'params':{}};
-        </script>
-        <script type="text/javascript" src="//www.highperformanceformat.com/67f81053e36b5a1e1d19f4af1a9d60ed/invoke.js"></script>
-    </div>
-
     <script>
-        <script>
-        // Efeito de rolagem suave
+        // Tema claro/escuro
+        const themeToggle = document.getElementById('themeToggle');
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        
+        document.documentElement.setAttribute('data-theme', currentTheme);
+        
+        themeToggle.addEventListener('click', () => {
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        });
+        
+        // Navegação suave
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+            anchor.addEventListener('click', function(e) {
                 e.preventDefault();
                 document.querySelector(this.getAttribute('href')).scrollIntoView({
                     behavior: 'smooth'
                 });
+                
+                // Atualiza link ativo
+                document.querySelectorAll('.nav-link').forEach(link => {
+                    link.classList.remove('active');
+                });
+                this.classList.add('active');
             });
         });
         
-        // Efeito especial no header
-        const header = document.querySelector('.header');
+        // Atualiza link ativo ao rolar
         window.addEventListener('scroll', () => {
-            const scrollPosition = window.scrollY;
-            header.style.backgroundPositionY = scrollPosition * 0.5 + 'px';
+            const sections = document.querySelectorAll('section');
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 100) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
         });
     </script>
 </body>
