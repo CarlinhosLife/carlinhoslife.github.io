@@ -13,22 +13,22 @@
     <style>
         :root {
             /* Cores modo claro */
-            --color-primary: #d10000;
-            --color-secondary: #ffd700;
-            --color-bg: #f8f8f8;
+            --color-primary: #b71c1c; /* Vermelho mais suave */
+            --color-secondary: #ffab00; /* Dourado mais suave */
+            --color-bg: #f5f5f5;
             --color-card: #ffffff;
-            --color-text: #222222;
-            --color-text-muted: #555555;
+            --color-text: #212121;
+            --color-text-muted: #616161;
             --color-border: #e0e0e0;
             
             /* Cores modo escuro */
-            --color-primary-dark: #ff4d4d;
-            --color-secondary-dark: #ffea00;
+            --color-primary-dark: #ff5252; /* Vermelho mais claro no escuro */
+            --color-secondary-dark: #ffd600;
             --color-bg-dark: #121212;
             --color-card-dark: #1e1e1e;
-            --color-text-dark: #f0f0f0;
-            --color-text-muted-dark: #aaaaaa;
-            --color-border-dark: #333333;
+            --color-text-dark: #f5f5f5;
+            --color-text-muted-dark: #9e9e9e;
+            --color-border-dark: #424242;
             
             /* Espaçamentos */
             --spacing-xs: 0.5rem;
@@ -82,6 +82,7 @@
             padding: var(--spacing-lg) 0;
             text-align: center;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: relative;
         }
         
         [data-theme="dark"] .header {
@@ -151,12 +152,24 @@
         .theme-toggle {
             position: absolute;
             right: var(--spacing-md);
-            top: var(--spacing-sm);
-            background: none;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,0.2);
             border: none;
             color: white;
             font-size: 1.2rem;
             cursor: pointer;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+        
+        .theme-toggle:hover {
+            background: rgba(255,255,255,0.3);
         }
         
         /* Conteúdo principal */
@@ -314,13 +327,13 @@
             font-style: italic;
             padding: var(--spacing-md);
             border-left: 4px solid var(--color-primary);
-            background-color: rgba(209, 0, 0, 0.05);
+            background-color: rgba(183, 28, 28, 0.05);
             margin: var(--spacing-md) 0;
         }
         
         [data-theme="dark"] .quote {
             border-left-color: var(--color-primary-dark);
-            background-color: rgba(255, 77, 77, 0.1);
+            background-color: rgba(255, 82, 82, 0.1);
         }
         
         .quote-author {
@@ -337,6 +350,30 @@
         
         li {
             margin-bottom: var(--spacing-xs);
+        }
+        
+        /* Anúncios */
+        .ad-container {
+            width: 100%;
+            margin: var(--spacing-md) 0;
+            text-align: center;
+            background: rgba(0,0,0,0.03);
+            padding: var(--spacing-sm);
+            border-radius: var(--border-radius);
+        }
+        
+        [data-theme="dark"] .ad-container {
+            background: rgba(255,255,255,0.05);
+        }
+        
+        .ad-label {
+            font-size: 0.8rem;
+            color: var(--color-text-muted);
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        [data-theme="dark"] .ad-label {
+            color: var(--color-text-muted-dark);
         }
         
         /* Responsividade */
@@ -357,13 +394,18 @@
             .section {
                 padding: var(--spacing-md);
             }
+            
+            .theme-toggle {
+                top: var(--spacing-sm);
+                transform: none;
+            }
         }
     </style>
 </head>
 <body>
     <!-- Header Section -->
     <header class='header'>
-        <button class="theme-toggle" id="themeToggle">🌓</button>
+        <button class="theme-toggle" id="themeToggle" aria-label="Alternar tema">🌓</button>
         <div class='container'>
             <h1 class='logo'>CARLINHOS <span>LIFE</span></h1>
             <p class='slogan'>O site oficial do fenômeno da internet</p>
@@ -384,6 +426,17 @@
     <main class='container'>
         <div class="main-content">
             <div class="main-column">
+                <!-- Ad Top -->
+                <div class="ad-container">
+                    <div class="ad-label">Publicidade</div>
+                    <div id="ad-top">
+                        <script type="text/javascript">
+                            atOptions = {'key':'1f52e3c26df1b42af32787a7ddfe2c83','format':'iframe','height':90,'width':728,'params':{}};
+                        </script>
+                        <script type="text/javascript" src="//www.highperformanceformat.com/1f52e3c26df1b42af32787a7ddfe2c83/invoke.js"></script>
+                    </div>
+                </div>
+                
                 <section class='section' id='historia'>
                     <h2 class='section-title'>A Origem do Fenômeno</h2>
 
@@ -414,6 +467,17 @@
                         <div class='timeline-item'>
                             <div class='timeline-date'>2016</div>
                             <p>Retorno às atividades online com vídeos e montagens que o tornaram notório.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Ad Inline -->
+                    <div class="ad-container">
+                        <div class="ad-label">Publicidade</div>
+                        <div id="ad-inline">
+                            <script type="text/javascript">
+                                atOptions = {'key':'6a41d7524b3dcbb94e3b7cf2a3daeb91','format':'iframe','height':250,'width':300,'params':{}};
+                            </script>
+                            <script type="text/javascript" src="//www.highperformanceformat.com/6a41d7524b3dcbb94e3b7cf2a3daeb91/invoke.js"></script>
                         </div>
                     </div>
                 </section>
@@ -461,6 +525,17 @@
                         <li>Eu gosto de dar a bunda!</li>
                     </ol>
                 </div>
+                
+                <!-- Ad Sidebar -->
+                <div class="sidebar-section ad-container">
+                    <div class="ad-label">Publicidade</div>
+                    <div id="ad-sidebar">
+                        <script type="text/javascript">
+                            atOptions = {'key':'87c892039a45f9e3ac83a5a98201a927','format':'iframe','height':300,'width':160,'params':{}};
+                        </script>
+                        <script type="text/javascript" src="//www.highperformanceformat.com/87c892039a45f9e3ac83a5a98201a927/invoke.js"></script>
+                    </div>
+                </div>
 
                 <div class='sidebar-section'>
                     <h3 class="section-title">Vídeo em Destaque</h3>
@@ -477,21 +552,49 @@
         <div class='container'>
             <div class='footer-logo'>CARLINHOS LIFE</div>
             <p>O site oficial do fenômeno da internet</p>
+            
+            <!-- Ad Footer -->
+            <div class="ad-container" style="margin: var(--spacing-md) auto; max-width: 728px;">
+                <div class="ad-label">Publicidade</div>
+                <div id="ad-footer">
+                    <script type="text/javascript">
+                        atOptions = {'key':'67f81053e36b5a1e1d19f4af1a9d60ed','format':'iframe','height':60,'width':468,'params':{}};
+                    </script>
+                    <script type="text/javascript" src="//www.highperformanceformat.com/67f81053e36b5a1e1d19f4af1a9d60ed/invoke.js"></script>
+                </div>
+            </div>
+            
             <p class='copyright'>© 2023 - Todos os direitos reservados.</p>
         </div>
     </footer>
 
+    <!-- Ad Fixed -->
+    <div class="ad-container" style="position: fixed; left: 10px; bottom: 10px; width: 160px; z-index: 1000;">
+        <div class="ad-label">Publicidade</div>
+        <div id="ad-fixed-left">
+            <script type="text/javascript">
+                atOptions = {'key':'e807006951cb0890975e83ca570945aa','format':'iframe','height':600,'width':160,'params':{}};
+            </script>
+            <script type="text/javascript" src="//www.highperformanceformat.com/e807006951cb0890975e83ca570945aa/invoke.js"></script>
+        </div>
+    </div>
+
     <script>
-        // Tema claro/escuro
+        // Tema claro/escuro corrigido
         const themeToggle = document.getElementById('themeToggle');
-        const currentTheme = localStorage.getItem('theme') || 'light';
+        let currentTheme = localStorage.getItem('theme') || 'light';
         
+        // Aplicar tema salvo
         document.documentElement.setAttribute('data-theme', currentTheme);
         
+        // Alternar tema
         themeToggle.addEventListener('click', () => {
-            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-            document.documentElement.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
+            currentTheme = currentTheme === 'light' ? 'dark' : 'light';
+            document.documentElement.setAttribute('data-theme', currentTheme);
+            localStorage.setItem('theme', currentTheme);
+            
+            // Atualizar ícone
+            themeToggle.textContent = currentTheme === 'light' ? '🌓' : '🌓';
         });
         
         // Navegação suave
