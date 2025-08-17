@@ -14,7 +14,7 @@
         /* SISTEMA DE MEDIDAS RESPONSIVO */
         :root {
             /* Fator de escala baseado na largura da tela */
-            --scale-factor: calc(1vw + 1vh);
+            --scale-factor: min(1.5vw, 12px);
             
             /* Cores */
             --color-primary: #d00000;
@@ -78,6 +78,7 @@
             display: flex;
             flex-direction: column;
             transition: all 0.3s ease;
+            overflow-x: hidden; /* Previne rolagem horizontal */
         }
 
         /* MODOS DE COR */
@@ -103,6 +104,7 @@
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             position: relative;
             flex-shrink: 0;
+            z-index: 100; /* Garante que fique acima dos outros elementos */
         }
 
         .logo {
@@ -330,7 +332,7 @@
             margin-top: var(--spacing-xs);
         }
 
-        /* ANÚNCIOS */
+        /* ANÚNCIOS - AJUSTES ESPECÍFICOS */
         .ad-container {
             width: 100%;
             margin: var(--spacing-md) 0;
@@ -338,6 +340,13 @@
             background: rgba(0,0,0,0.03);
             padding: var(--spacing-sm);
             border-radius: var(--border-radius);
+            overflow: hidden; /* Contém elementos flutuantes */
+        }
+
+        .ad-container > div {
+            max-width: 100%;
+            margin: 0 auto;
+            overflow: hidden;
         }
 
         .ad-label {
@@ -356,15 +365,14 @@
             text-decoration: none;
         }
 
-        /* BOTÃO TEMA */
+        /* BOTÃO TEMA - POSIÇÃO FIXA MELHORADA */
         .theme-toggle {
-            position: absolute;
+            position: fixed;
             right: var(--spacing-md);
-            top: 50%;
-            transform: translateY(-50%);
-            width: clamp(36px, var(--scale-factor) * 2, 40px);
-            height: clamp(36px, var(--scale-factor) * 2, 40px);
-            background: rgba(255,255,255,0.2);
+            top: var(--spacing-md);
+            width: clamp(36px, calc(var(--scale-factor) * 3), 44px);
+            height: clamp(36px, calc(var(--scale-factor) * 3), 44px);
+            background: rgba(0,0,0,0.5);
             border: none;
             color: white;
             font-size: 1.2rem;
@@ -374,21 +382,11 @@
             align-items: center;
             justify-content: center;
             transition: all 0.3s;
+            z-index: 1000; /* Garante que fique acima de tudo */
         }
 
         .theme-toggle:hover {
-            background: rgba(255,255,255,0.3);
-        }
-
-        @media (max-width: 600px) {
-            .theme-toggle {
-                position: fixed;
-                top: var(--spacing-sm);
-                right: var(--spacing-sm);
-                transform: none;
-                background: rgba(0,0,0,0.5);
-                z-index: 1000;
-            }
+            background: rgba(0,0,0,0.7);
         }
 
         /* MODOS ESCUROS */
@@ -469,6 +467,51 @@
             
             .section-title {
                 font-size: var(--font-size-md);
+            }
+            
+            /* Ajuste especial para anúncios no mobile */
+            .ad-container {
+                padding: var(--spacing-xs);
+                margin: var(--spacing-sm) 0;
+            }
+            
+            /* Garante que anúncios não estourem o container */
+            .ad-container > div,
+            .ad-container iframe,
+            .ad-container script {
+                max-width: 100% !important;
+                width: 100% !important;
+            }
+            
+            /* Ajuste de posição do botão de tema */
+            .theme-toggle {
+                right: var(--spacing-sm);
+                top: var(--spacing-sm);
+                width: 40px;
+                height: 40px;
+            }
+        }
+
+        /* PREVENÇÃO DE LAYOUT QUEBRADO POR ANÚNCIOS */
+        @media (max-width: 768px) {
+            /* Limita a largura dos anúncios inline */
+            #ad-inline, #ad-pub-1, #ad-pub-2, #ad-pub-3 {
+                max-width: 100% !important;
+                width: 100% !important;
+                height: auto !important;
+            }
+            
+            /* Ajuste para anúncios de rodapé */
+            #ad-footer, #ad-footer-2 {
+                max-width: 100% !important;
+                width: 100% !important;
+            }
+            
+            /* Anúncio fixo mobile */
+            #ad-fixed-left {
+                width: 120px !important;
+                bottom: 60px !important;
+                left: var(--spacing-sm) !important;
             }
         }
     </style>
@@ -688,8 +731,8 @@
         </div>
     </footer>
 
-    <!-- ANÚNCIO FIXO -->
-    <div class="ad-container" style="position: fixed; left: 10px; bottom: 10px; width: 160px; z-index: 1000;">
+    <!-- ANÚNCIO FIXO - AJUSTADO PARA MOBILE -->
+    <div class="ad-container" style="position: fixed; left: var(--spacing-sm); bottom: 60px; width: 120px; z-index: 1000;">
         <div class="ad-label">Publicidade</div>
         <div id="ad-fixed-left">
             <script type='text/javascript' src='//pl27428953.profitableratecpm.com/0f/70/27/0f7027dc88f610c7303da2c53d70ce6c.js'></script>
@@ -756,6 +799,19 @@
                     link.classList.add('active');
                 }
             });
+        });
+
+        // Correção para anúncios que podem distorcer o layout
+        window.addEventListener('load', function() {
+            // Ajusta iframes de anúncios para não causar overflow
+            document.querySelectorAll('.ad-container iframe').forEach(iframe => {
+                iframe.style.maxWidth = '100%';
+                iframe.style.width = '100%';
+            });
+            
+            // Garante que o botão de tema fique visível
+            const themeBtn = document.getElementById('themeToggle');
+            themeBtn.style.zIndex = '1000';
         });
     </script>
 </body>
