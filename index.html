@@ -11,10 +11,11 @@
     <link href='https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap' rel='stylesheet'/>
     
     <style>
+        /* VARIÁVEIS E ESTILOS GLOBAIS */
         :root {
             /* Cores modo claro - Vermelho mais forte */
-            --color-primary: #d00000; /* Vermelho vibrante */
-            --color-secondary: #ffc107; /* Dourado */
+            --color-primary: #d00000;
+            --color-secondary: #ffc107;
             --color-bg: #f5f5f5;
             --color-card: #ffffff;
             --color-text: #212121;
@@ -22,7 +23,7 @@
             --color-border: #e0e0e0;
             
             /* Cores modo escuro */
-            --color-primary-dark: #ff3333; /* Vermelho mais intenso no escuro */
+            --color-primary-dark: #ff3333;
             --color-secondary-dark: #ffca28;
             --color-bg-dark: #121212;
             --color-card-dark: #1e1e1e;
@@ -42,7 +43,7 @@
             --border-radius-lg: 16px;
         }
         
-        /* Reset e estilos base */
+        /* RESET E ESTILOS BASE */
         *, *::before, *::after {
             box-sizing: border-box;
             margin: 0;
@@ -62,20 +63,20 @@
             transition: background-color 0.3s, color 0.3s;
         }
         
-        /* Modo escuro */
+        /* MODOS DE COR */
         [data-theme="dark"] body {
             background-color: var(--color-bg-dark);
             color: var(--color-text-dark);
         }
         
-        /* Container principal */
+        /* LAYOUT PRINCIPAL */
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 var(--spacing-md);
         }
         
-        /* Cabeçalho */
+        /* CABEÇALHO */
         .header {
             background-color: var(--color-primary);
             color: white;
@@ -108,7 +109,7 @@
             opacity: 0.9;
         }
         
-        /* Navegação */
+        /* NAVEGAÇÃO */
         .nav {
             display: flex;
             justify-content: center;
@@ -148,7 +149,7 @@
             background-color: var(--color-primary-dark);
         }
         
-        /* Botão tema */
+        /* BOTÃO TEMA */
         .theme-toggle {
             position: absolute;
             right: var(--spacing-md);
@@ -172,7 +173,7 @@
             background: rgba(255,255,255,0.3);
         }
         
-        /* Conteúdo principal */
+        /* CONTEÚDO PRINCIPAL */
         .main-content {
             display: grid;
             grid-template-columns: 1fr 300px;
@@ -180,13 +181,7 @@
             margin: var(--spacing-lg) 0;
         }
         
-        @media (max-width: 768px) {
-            .main-content {
-                grid-template-columns: 1fr;
-            }
-        }
-        
-        /* Seções */
+        /* SEÇÕES */
         .section {
             background-color: var(--color-card);
             border-radius: var(--border-radius-lg);
@@ -215,7 +210,7 @@
             border-bottom-color: var(--color-primary-dark);
         }
         
-        /* Galeria de imagens horizontais */
+        /* GALERIA DE IMAGENS */
         .image-gallery {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -253,7 +248,7 @@
             text-align: center;
         }
         
-        /* Sidebar */
+        /* SIDEBAR */
         .sidebar {
             position: sticky;
             top: 80px;
@@ -272,7 +267,7 @@
             border-color: var(--color-border-dark);
         }
         
-        /* Rodapé */
+        /* RODAPÉ */
         .footer {
             background-color: var(--color-primary);
             color: white;
@@ -296,7 +291,7 @@
             opacity: 0.8;
         }
         
-        /* Linha do tempo */
+        /* COMPONENTES ESPECÍFICOS */
         .timeline {
             display: grid;
             gap: var(--spacing-md);
@@ -322,7 +317,6 @@
             color: var(--color-primary-dark);
         }
         
-        /* Citação */
         .quote {
             font-style: italic;
             padding: var(--spacing-md);
@@ -342,7 +336,7 @@
             margin-top: var(--spacing-xs);
         }
         
-        /* Listas */
+        /* LISTAS */
         ul, ol {
             padding-left: var(--spacing-md);
             margin: var(--spacing-md) 0;
@@ -352,7 +346,7 @@
             margin-bottom: var(--spacing-xs);
         }
         
-        /* Anúncios */
+        /* ANÚNCIOS */
         .ad-container {
             width: 100%;
             margin: var(--spacing-md) 0;
@@ -390,7 +384,7 @@
             color: var(--color-primary-dark);
         }
         
-        /* Seção de Publicidade */
+        /* SEÇÃO DE PUBLICIDADE */
         .publicidade-section {
             background-color: rgba(208, 0, 0, 0.05);
             border: 1px dashed var(--color-primary);
@@ -414,7 +408,13 @@
             color: var(--color-primary-dark);
         }
         
-        /* Responsividade */
+        /* RESPONSIVIDADE */
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+        }
+        
         @media (max-width: 600px) {
             .logo {
                 font-size: 2rem;
@@ -441,7 +441,7 @@
     </style>
 </head>
 <body>
-    <!-- Header Section -->
+    <!-- CABEÇALHO -->
     <header class='header'>
         <button class="theme-toggle" id="themeToggle" aria-label="Alternar tema">🌓</button>
         <div class='container'>
@@ -450,7 +450,7 @@
         </div>
     </header>
 
-    <!-- Navigation -->
+    <!-- NAVEGAÇÃO -->
     <nav class='nav'>
         <div class='container'>
             <a class='nav-link active' href='#historia'>História</a>
@@ -460,11 +460,11 @@
         </div>
     </nav>
     
-    <!-- Main Content -->
+    <!-- CONTEÚDO PRINCIPAL -->
     <main class='container'>
         <div class="main-content">
             <div class="main-column">
-                <!-- Ad Top -->
+                <!-- ANÚNCIO TOPO -->
                 <div class="ad-container">
                     <div class="ad-label">Publicidade</div>
                     <div id="ad-top">
@@ -475,12 +475,13 @@
                     </div>
                 </div>
                 
+                <!-- SEÇÃO HISTÓRIA -->
                 <section class='section' id='historia'>
                     <h2 class='section-title'>A Origem do velho viado Carlinhos</h2>
 
                     <div class="image-gallery">
                         <div class="gallery-item">
-                            <img src='https://images.uncyc.org/pt/7/78/Carlinhos.png' alt='Carlinhos'/>
+                            <img src='https://images.uncyc.org/pt/7/78/Carlinhos.png' alt='Carlinhos' loading="lazy"/>
                             <div class="gallery-caption">O lendário Carlinhos em sua forma mais pura</div>
                         </div>
                     </div>
@@ -508,7 +509,7 @@
                         </div>
                     </div>
                     
-                    <!-- Ad Inline -->
+                    <!-- ANÚNCIO INLINE -->
                     <div class="ad-container">
                         <div class="ad-label">Publicidade</div>
                         <div id="ad-inline">
@@ -520,24 +521,26 @@
                     </div>
                 </section>
 
+                <!-- SEÇÃO MEMES -->
                 <section class='section' id='memes'>
                     <h2 class='section-title'>Galeria de obras clássicas</h2>
                     <div class='image-gallery'>
                         <div class='gallery-item'>
-                            <img src='https://uploads.spiritfanfiction.com/historias/capitulos/202310/carlinhos-e-seu-amor-por-cavalos-25217051-291020230116.jpg' alt='Carlinhos e cavalos'/>
+                            <img src='https://uploads.spiritfanfiction.com/historias/capitulos/202310/carlinhos-e-seu-amor-por-cavalos-25217051-291020230116.jpg' alt='Carlinhos e cavalos' loading="lazy"/>
                             <div class="gallery-caption">Carlinhos sombrio</div>
                         </div>
                         <div class='gallery-item'>
-                            <img src='https://i1.sndcdn.com/artworks-FeNT6vKDAhQ9CQNy-a4yMNw-t1080x1080.jpg' alt='Carlinhos Mao Tsé-Tung'/>
+                            <img src='https://i1.sndcdn.com/artworks-FeNT6vKDAhQ9CQNy-a4yMNw-t1080x1080.jpg' alt='Carlinhos Mao Tsé-Tung' loading="lazy"/>
                             <div class="gallery-caption">Versão Mao Tsé-Tung</div>
                         </div>
                         <div class='gallery-item'>
-                            <img src='https://i.pinimg.com/736x/2e/79/b9/2e79b9122746e7c088d634aa8f4c41fd.jpg' alt='Carlinhos medalhista'/>
+                            <img src='https://i.pinimg.com/736x/2e/79/b9/2e79b9122746e7c088d634aa8f4c41fd.jpg' alt='Carlinhos medalhista' loading="lazy"/>
                             <div class="gallery-caption">Carlinhos medalhista</div>
                         </div>
                     </div>
                 </section>
 
+                <!-- SEÇÃO FRASES -->
                 <section class='section' id='frases'>
                     <h2 class='section-title'>Frases Filosóficas</h2>
                     <ul>
@@ -547,7 +550,7 @@
                     </ul>
                 </section>
                 
-                <!-- Seção de Publicidade -->
+                <!-- SEÇÃO PUBLICIDADE -->
                 <section class='publicidade-section' id='publicidade'>
                     <h3 class="publicidade-title">Patrocinadores</h3>
                     
@@ -587,7 +590,7 @@
                 </section>
             </div>
             
-            <!-- Sidebar -->
+            <!-- SIDEBAR -->
             <aside class='sidebar'>
                 <div class='sidebar-section'>
                     <h3 class="section-title">Carlinhos HOJE</h3>
@@ -603,7 +606,7 @@
                     </ol>
                 </div>
                 
-                <!-- Ad Sidebar -->
+                <!-- ANÚNCIO SIDEBAR -->
                 <div class="sidebar-section ad-container">
                     <div class="ad-label">Publicidade</div>
                     <div id="ad-sidebar">
@@ -624,13 +627,13 @@
         </div>
     </main>
     
-    <!-- Footer -->
+    <!-- RODAPÉ -->
     <footer class='footer'>
         <div class='container'>
             <div class='footer-logo'>CARLINHOS LIFE</div>
             <p>O O site clandestino do Carlinhos!</p>
             
-            <!-- Ad Footer -->
+            <!-- ANÚNCIO RODAPÉ -->
             <div class="ad-container" style="margin: var(--spacing-md) auto; max-width: 728px;">
                 <div class="ad-label">Publicidade</div>
                 <div id="ad-footer">
@@ -652,7 +655,7 @@
         </div>
     </footer>
 
-    <!-- Ad Fixed -->
+    <!-- ANÚNCIO FIXO -->
     <div class="ad-container" style="position: fixed; left: 10px; bottom: 10px; width: 160px; z-index: 1000;">
         <div class="ad-label">Publicidade</div>
         <div id="ad-fixed-left">
@@ -660,8 +663,9 @@
         </div>
     </div>
 
+    <!-- SCRIPTS -->
     <script>
-        // Tema claro/escuro corrigido
+        // Tema claro/escuro
         const themeToggle = document.getElementById('themeToggle');
         let currentTheme = localStorage.getItem('theme') || 'light';
         
@@ -673,12 +677,10 @@
             currentTheme = currentTheme === 'light' ? 'dark' : 'light';
             document.documentElement.setAttribute('data-theme', currentTheme);
             localStorage.setItem('theme', currentTheme);
-            
-            // Atualizar ícone
             themeToggle.textContent = currentTheme === 'light' ? '🌓' : '🌓';
         });
         
-        // Navegação suave - CORRIGIDA para a galeria
+        // Navegação suave
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -690,15 +692,13 @@
                         behavior: 'smooth'
                     });
                     
-                    // Atualiza link ativo
                     document.querySelectorAll('.nav-link').forEach(link => {
                         link.classList.remove('active');
                     });
                     this.classList.add('active');
                     
-                    // Correção especial para a galeria
                     if (targetId === '#galeria') {
-                        window.scrollBy(0, -80); // Ajuste de offset
+                        window.scrollBy(0, -80);
                     }
                 }
             });
